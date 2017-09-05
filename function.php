@@ -39,7 +39,7 @@ function modifyBox($tableName,$nameColumn){
     $resultMod = mysqli_query($bd,$modifyQuery);
     return $resultMod;
 }
-function rename($tableName,$nameColumn,$val,$type){
+function renameColumn($tableName,$nameColumn,$val,$type){
     $bd = mysqli_connect('localhost','rooting2','123123','firstDataBase');
     $renameQuery = "ALTER TABLE $tableName CHANGE  $nameColumn $val $type";
     $resultRen = mysqli_query($bd,$renameQuery);
