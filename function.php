@@ -27,6 +27,24 @@ function describeTable($nameTable){
     return $res;
 
 }
+function deleteBox($tableName,$nameColumn){
+    $bd = mysqli_connect('localhost','rooting2','123123','firstDataBase');
+    $deleteQuery = "ALTER TABLE $tableName Drop COLUMN $nameColumn";
+    $resultDel = mysqli_query($bd,$deleteQuery);
+    return $resultDel;
+}
+function modifyBox($tableName,$nameColumn){
+    $bd = mysqli_connect('localhost','rooting2','123123','firstDataBase');
+    $modifyQuery = "ALTER TABLE $tableName MODIFY $nameColumn";
+    $resultMod = mysqli_query($bd,$modifyQuery);
+    return $resultMod;
+}
+function rename($tableName,$nameColumn,$val,$type){
+    $bd = mysqli_connect('localhost','rooting2','123123','firstDataBase');
+    $renameQuery = "ALTER TABLE $tableName CHANGE  $nameColumn $val $type";
+    $resultRen = mysqli_query($bd,$renameQuery);
+    return $resultRen;
+}
 
 if (isset($_POST['OK'])){
     createTable($_POST['name']);
